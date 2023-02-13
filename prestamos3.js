@@ -324,16 +324,18 @@ const generarUsuario = async() => {
   const respuesta = await fetch(url);
   const { results } = await respuesta.json();
   const datos = results[0];
+  const nombreForm = document.getElementById("nombre");
+  nombreForm.value = `$datos.name.first`;
   console.log(datos);
-  nombre.textContent = datos.name.first;
-  // return datos;
+  // nombre.textContent = datos.name.first;
+  return datos;
   } catch (error) {
     console.log(error);
   }
 }
 
 simular.addEventListener("click", generarUsuario);
-document.addEventListener("DOMContentLoaded", generarUsuario);
+// document.addEventListener("DOMContentLoaded", generarUsuario);
 
 
 // $.ajax({
